@@ -590,5 +590,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-.idea/
 data/
+.idea/
+saved_models/
