@@ -65,8 +65,6 @@ def visualize_pred(
     mask_miss_classifications_overlay = mask_target_overlay.copy()
     mask_miss_classifications_overlay[mask_target != mask_pred, :] = torch.tensor([1., 0., 0.])
 
-    print(mask_pred_overlay.shape)
-
     _, ax = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
     ax[0, 0].imshow(img)
     ax[0, 1].imshow(mask_target_overlay)
@@ -82,7 +80,7 @@ def overlay_mask(mask: np.ndarray, img: np.ndarray = None) -> np.ndarray:
     if img is not None:
         *_, c = img.shape
         assert c == 3
-        return label2rgb(label=mask, image=img, alpha=0.3, colors=COLOR_MAP.values(), bg_label=0)
+        return label2rgb(label=mask, image=img, alpha=0.3, colors=list(COLOR_MAP.values()), bg_label=0, kind="overlay")
     else:
-        return label2rgb(label=mask, colors=COLOR_MAP.values(), bg_label=0)
+        return label2rgb(label=mask, colors=list(COLOR_MAP.values()), bg_label=0)
 
