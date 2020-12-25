@@ -1,6 +1,8 @@
 NUM_CLASS = 3
 COLOR_MAP = {
-    "Others": (0.0, 0.0, 0.0, 0.0),  # Transparent
+    # Comment out because of stupid sklearn "feature" in choosing color when background is designated manually
+    # https://github.com/scikit-image/scikit-image/issues/2674
+    # "Others": (0.0, 0.0, 0.0, 0.0),
     "Corn": (1.0, 0.82745098039, 0.0, 1.0),  # Yellow-ish
     "Soybeans": (0.14901960784, 0.43921568628, 0.0, 1.0)  # Green-ish
 }
@@ -26,4 +28,4 @@ train_mean_full = [5188.78934685, 4132.74818647, 2498.34747813, 3689.04702811, 1
 train_std_full = [1482.89729162, 1447.21062441, 1384.91231294, 1149.82168184, 2879.24827197]
 
 EPOCH = 60
-BATCH_SIZE = 32
+BATCH_SIZE = 16
